@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.styled-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: 'Arial', sans-serif;
+  border: 1px solid #ddd;
+}
+
+.styled-table th,
+.styled-table td {
+  border: 1x solid #ddd; /* Adds borders to rows and columns */
+  padding: 8px; /* Adds padding inside cells */
+  text-align: left;
+}
+
+.styled-table thead {
+  background-color: #f2f2f2; /* Adds a background color to the header */
+}
+
+.styled-table tr:nth-child(even) {
+  background-color: #f9f9f9; /* Alternates background color for rows */
+}
+
+.styled-table tr:hover {
+  background-color: #f1f1f1; /* Adds hover effect on rows */
+}
