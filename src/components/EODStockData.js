@@ -1,11 +1,12 @@
 
 
-export default function DataTable({ data }) {
+export default function EODStockData({ data }) {
 
   return (
     <table className='styled-table'>
       <thead>
         <tr>
+          <th>Symbol</th>
           <th>Adjusted Close</th>
           <th>Adjusted High</th>
           <th>Adjusted Low</th>
@@ -23,6 +24,7 @@ export default function DataTable({ data }) {
         {data?.map((item, index) => {
           return (
             <tr key={index}>
+              <td>{item.symbol}</td>
               <td>{item.adj_close}</td>
               <td>{item.adj_high}</td>
               <td>{item.adj_low}</td>
