@@ -8,6 +8,8 @@ export default function NavBar() {
       <Link className='nav-item' to='/stock-market'>Stock Market Data</Link>
       <Link className='nav-item' to='/weather'>Weather Data</Link>
       <Link className='nav-item' to='/astronomy'>Astronomy Picture of the Day</Link>
+      <Link className='nav-item' to='/form-practice'>Form Practice</Link>
+      <Link className='nav-item' to='/exercise'>Exercise</Link>
     </nav>
   );
 }

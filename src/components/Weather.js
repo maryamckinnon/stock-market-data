@@ -7,11 +7,10 @@ export default function Weather() {
   const [weatherForecast, setWeatherForecast] = useState(null);
 
   const baseUrl = 'http://api.weatherapi.com/v1/'
-  const WEATHER_API_KEY = 'dbb5a48d1ef54842aeb23544251901'
+  const WEATHER_API_KEY = process.env.WEATHER_API_KEY;
 
   const fetchWeatherData = async (location) => {
     try {
-      // const currentWeatherUrl = `${baseUrl}/current.json?key=${WEATHER_API_KEY}&q=${location}`;
       const weatherForecastUrl = `${baseUrl}/forecast.json?key=${WEATHER_API_KEY}&q=${location}&days=7`;
 
       const response = await fetch(weatherForecastUrl);
