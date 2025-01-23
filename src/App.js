@@ -4,8 +4,10 @@ import Home from './components/Home';
 import NavBar from './components/NavBar';
 import Stock from './components/Stock';
 import Weather from './components/Weather';
+import Form from './components/Form';
 import Practice from './components/Practice';
 import Exercise from './components/Exercise';
+import Counter from './components/Counter';
 
 function App() {
 
@@ -17,8 +19,9 @@ function App() {
         <Route path='/stock-market' element={<Stock />} />
         <Route path='/weather' element={<Weather />} />
         <Route path='/astronomy' element={<Astronomy />} />
-        <Route path='/form-practice' element={<Practice /> } />
+        <Route path='/practice' element={<Practice /> } />
         <Route path='/exercise' element={<Exercise />} />
+        <Route path='/counter' element={<Counter />} />
       </Routes>
     </>
   )

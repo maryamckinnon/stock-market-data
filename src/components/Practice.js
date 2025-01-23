@@ -6,58 +6,58 @@ export default function Practice() {
     lastName: '',
     email: '',
     password: '',
-    agree: false,
+    agreed: false,
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  async function handleSubmit(e) {
-    e.preventDefault();
-    setIsSubmitting(true);
+  function handleChange(e) {
+    const name = e.target.name;
+    const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
+    setValues({
+      ...values,
+      [name] : value,
+    });
+  }
+
+  async function fetchData() {
+    const url = 'fake-url.com';
     try {
-      const response = await fetch('https://your-api-endpoint', {
+      const response = await fetch(url, {
         method: 'POST',
         headers: {
-          'Content-type': 'application/json',
-        },
-        body: JSON.stringify(values)
-      });
-      const data = await response.json();
+
+        }
+      })
+    } catch (error) {
+      console.error(error);
+    } finally {
       setValues({
         firstName: '',
         lastName: '',
         email: '',
         password: '',
-        agree: false,
+        agreed: false,
       });
-    } catch (error) {
-      console.error(error);
-    } finally {
       setIsSubmitting(false);
     }
   }
 
-  function handleChange(e) {
-    const name = e.target.name;
-    let value = e.target.value;
-    if (e.target.type === 'checkbox') {
-      value = e.target.checked;
-    }
-    setValues({
-      ...values,
-      [name] : value
-    });
+  function handleSubmit(e) {
+    e.preventDefault();
+    setIsSubmitting(true);
+    fetchData();
   }
 
-
   return (
-    <div className='form-container'>
+    <>
+      {isSubmitting && <h1>Submitting...</h1>}
       <form onSubmit={handleSubmit}>
         <label htmlFor='firstName'>
-          First Name:
+          First Name: 
           <input
             type='text'
             name='firstName'
-            placeholder='Enter first name'
+            placeholder='Enter your first name'
             value={values.firstName}
             onChange={handleChange}
             required
@@ -68,47 +68,46 @@ export default function Practice() {
           <input
             type='text'
             name='lastName'
-            placeholder='Enter last name'
+            placeholder='Enter your last name'
             value={values.lastName}
             onChange={handleChange}
             required
           />
         </label>
         <label htmlFor='email'>
-          Email:
+          Email
           <input
-            type='email'
+            type='text'
             name='email'
-            placeholder='Enter your email'
+            placeholder='Enter your email address'
             value={values.email}
             onChange={handleChange}
             required
           />
         </label>
         <label htmlFor='password'>
-          Password:
+          Password
           <input
             type='password'
             name='password'
+            placeholder='Enter a password'
             value={values.password}
             onChange={handleChange}
             required
           />
         </label>
-        <label htmlFor='agree'>
-          Agree:
+        <label htmlFor='agreed'>
+          Agreed
           <input
             type='checkbox'
-            name='agree'
-            value={values.agree}
+            name='agreed'
+            value={values.agreed}
             onChange={handleChange}
             required
           />
         </label>
-        <button type='submit'>
-          Submit
-        </button>
+        <button type='submit'>Submit</button>
       </form>
-    </div>
+    </>
   );
 }
